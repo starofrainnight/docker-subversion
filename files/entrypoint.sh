@@ -18,4 +18,4 @@ chown -R www-data:www-data "/var/lib/svn/"
 
 service apache2 start 
 
-exec bash
+tail -f /dev/null
