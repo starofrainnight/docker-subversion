@@ -5,6 +5,7 @@ ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y \
     subversion \
+    supervisor \
     libapache2-svn \
     apache2-mpm-prefork \
     && apt-get clean
@@ -20,6 +21,7 @@ RUN mkdir -p /var/lib/svn
 RUN mkdir /etc/apache2/dav_svn
 
 ADD files/dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
+ADD files/apache2.conf /etc/supervisor/conf.d/apache2.conf
 ADD files/entrypoint.sh /usr/local/bin/
 
 RUN chmod a+x /usr/local/bin/*.sh

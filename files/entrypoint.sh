@@ -16,7 +16,7 @@ fi
 # Fix dir/files authorities
 chown -R www-data:www-data "/var/lib/svn/"
 
-service apache2 start 
+service supervisor restart
 
 tail -f /dev/null
 
