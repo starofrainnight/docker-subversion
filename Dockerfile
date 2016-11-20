@@ -20,7 +20,7 @@ RUN rm -rf /var/www/*
 RUN mkdir -p /var/lib/svn
 RUN mkdir /etc/apache2/dav_svn
 
-ADD files/dav_svn.conf /etc/apache2/mods-available/dav_svn.conf
+ADD files/update_dav_svn_conf.py /usr/local/bin/
 ADD files/apache2.conf /etc/supervisor/conf.d/apache2.conf
 ADD files/entrypoint.sh /usr/local/bin/
 

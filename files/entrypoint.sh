@@ -16,6 +16,9 @@ fi
 # Fix dir/files authorities
 chown -R www-data:www-data "/var/lib/svn/"
 
+# Generate dav_svn.conf
+python /usr/local/bin/update_dav_svn_conf.py
+
 service supervisor restart
 
 tail -f /dev/null
