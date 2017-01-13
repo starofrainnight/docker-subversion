@@ -4,8 +4,8 @@ MAINTAINER Hong-She Liang <starofrainnight@gmail.com>
 ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y \
+    python \
     subversion \
-    supervisor \
     libapache2-svn \
     apache2-mpm-prefork \
     && apt-get clean
@@ -18,10 +18,9 @@ RUN a2dissite 000-default
 RUN rm -rf /var/www/*
 
 RUN mkdir -p /var/lib/svn
-RUN mkdir /etc/apache2/dav_svn
+RUN mkdir -p /etc/apache2/dav_svn
 
 ADD files/update_dav_svn_conf.py /usr/local/bin/
-ADD files/apache2.conf /etc/supervisor/conf.d/apache2.conf
 ADD files/entrypoint.sh /usr/local/bin/
 
 RUN chmod a+x /usr/local/bin/*.sh
