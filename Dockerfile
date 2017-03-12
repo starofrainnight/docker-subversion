@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     subversion \
     libapache2-svn \
     apache2-mpm-prefork \
+    links \
     && apt-get clean
 
 RUN a2enmod dav_svn
