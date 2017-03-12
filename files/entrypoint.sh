@@ -19,4 +19,6 @@ chown -R www-data:www-data "/var/lib/svn/"
 # Generate dav_svn.conf
 python /usr/local/bin/update_dav_svn_conf.py
 
+bash /usr/local/bin/subversion-daemon.sh &
+
 apachectl -DFOREGROUND

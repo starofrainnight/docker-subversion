@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     libapache2-svn \
     apache2-mpm-prefork \
     links \
+    psmisc \
+    wget \
     && apt-get clean
 
 RUN a2enmod dav_svn
@@ -23,6 +25,7 @@ RUN mkdir -p /etc/apache2/dav_svn
 
 ADD files/update_dav_svn_conf.py /usr/local/bin/
 ADD files/entrypoint.sh /usr/local/bin/
+ADD files/subversion-daemon.sh /usr/local/bin/
 
 RUN chmod a+x /usr/local/bin/*.sh
 
