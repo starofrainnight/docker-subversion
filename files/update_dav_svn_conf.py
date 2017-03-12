@@ -27,6 +27,12 @@ template = """
 """
 
 dst_contents = []
+
+# Append the first level directory if it's not the repository
+format_path = os.path.join(parent_prefix, "format")
+if not os.path.exists(format_path):
+    dst_contents.append(template % (location_prefix, parent_prefix))
+
 for root, dirs, files in os.walk(parent_prefix):
     dont_visit_dirs = []
     for adir in dirs:
