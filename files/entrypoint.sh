@@ -14,6 +14,7 @@ then
 fi
 
 # Fix dir/files authorities
+chown -R www-data:www-data "/etc/apache2/dav_svn/"
 chown -R www-data:www-data "/var/lib/svn/"
 
 # Generate dav_svn.conf
