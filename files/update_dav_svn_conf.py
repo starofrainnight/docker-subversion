@@ -38,7 +38,8 @@ for root, dirs, files in os.walk(parent_prefix):
     for adir in dirs:
         adir_path = os.path.normpath(os.path.join(root, adir))
         format_path = os.path.join(adir_path, "format")
-        if os.path.exists(format_path):
+        svnserve_path = os.path.join(adir_path, "conf/svnserve.conf")
+        if not (os.path.exists(format_path) and os.path.exists(svnserve_path)):
             dont_visit_dirs.append(adir)
             continue
 
@@ -54,7 +55,8 @@ for root, dirs, files in os.walk(parent_prefix):
 
 content = "\n".join(dst_contents)
 
-print("Origin content size : %s, New content size : %s" % (len(origin_content), len(content)))
+print("Origin content size : %s, New content size : %s" %
+      (len(origin_content), len(content)))
 
 if origin_content != content:
     with open(dav_conf_file_path, "wb") as dst_file:
