@@ -39,7 +39,11 @@ for root, dirs, files in os.walk(parent_prefix):
         adir_path = os.path.normpath(os.path.join(root, adir))
         format_path = os.path.join(adir_path, "format")
         svnserve_path = os.path.join(adir_path, "conf/svnserve.conf")
-        if not (os.path.exists(format_path) and os.path.exists(svnserve_path)):
+        # Don't visit repositories, otherwise the repositories lead apache2
+        # happen to this error:
+        #
+        #     The URI does not contain the name of a repository
+        if (os.path.exists(format_path) and os.path.exists(svnserve_path)):
             dont_visit_dirs.append(adir)
             continue
 
