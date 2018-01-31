@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y \
     python \
     subversion \
     libapache2-svn \
-    apache2-mpm-prefork \
     links \
     psmisc \
     wget \
