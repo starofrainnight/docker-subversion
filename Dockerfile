@@ -5,6 +5,7 @@ ENV LANG C.UTF-8
 
 RUN apt-get update && apt-get install -y \
     python \
+    apache2 \
     subversion \
     libapache2-svn \
     links \
