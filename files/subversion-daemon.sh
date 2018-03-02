@@ -15,7 +15,9 @@ while true; do
     sleep 10
     echo "Check if server down ..."
     wget --timeout=3 --tries=1 http://127.0.0.1 -qO- > /dev/null
-    if [ "$?" -ne "0" ]
+    # If wget connect failed, it will return 4 .
+    # If wget got 404 result, it will return 8 (but it's correct result !)
+    if [ "$?" -eq "4" ]
     then
         echo "Server down, restarting apache ..."
         apachectl restart
