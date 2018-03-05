@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Hong-She Liang <starofrainnight@gmail.com>
+LABEL MAINTAINER Hong-She Liang <starofrainnight@gmail.com>
 
 ENV LANG C.UTF-8
 
