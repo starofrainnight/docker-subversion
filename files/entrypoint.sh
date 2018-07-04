@@ -22,4 +22,11 @@ python /usr/local/bin/update_dav_svn_conf.py
 
 bash /usr/local/bin/subversion-daemon.sh &
 
-apachectl -DFOREGROUND
+# Run at foreground sometimes will exit with result 0 and said :
+# "httpd (pid 14) already running"
+#
+# So we just restart at the beginning and use tail to ensure docker keep
+# running.
+apachectl restart
+
+tail -f /dev/null
