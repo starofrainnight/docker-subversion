@@ -20,7 +20,8 @@ chown -R www-data:www-data "/var/lib/svn/"
 # Generate dav_svn.conf
 python /usr/local/bin/update_dav_svn_conf.py
 
-bash /usr/local/bin/subversion-daemon.sh &
+# Run subversion daemon
+python /usr/local/bin/subversion-daemon.py &
 
 # Run at foreground sometimes will exit with result 0 and said :
 # "httpd (pid 14) already running"

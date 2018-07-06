@@ -25,7 +25,7 @@ RUN mkdir -p /etc/apache2/dav_svn
 
 ADD files/update_dav_svn_conf.py /usr/local/bin/
 ADD files/entrypoint.sh /usr/local/bin/
-ADD files/subversion-daemon.sh /usr/local/bin/
+ADD files/subversion-daemon.py /usr/local/bin/
 
 RUN chmod a+x /usr/local/bin/*.sh
 
