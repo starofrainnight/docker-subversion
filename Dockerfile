@@ -33,5 +33,6 @@ VOLUME /var/lib/svn
 VOLUME /etc/apache2/dav_svn
 
 EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
