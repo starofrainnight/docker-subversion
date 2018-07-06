@@ -20,12 +20,15 @@ RUN a2dissite 000-default
 # Clear files at /var/www, avoid display anything at that directory.
 RUN rm -rf /var/www/*
 
+# Directory requires directory: /var/www/html
+RUN mkdir -p /var/www/html
 RUN mkdir -p /var/lib/svn
 RUN mkdir -p /etc/apache2/dav_svn
 
 ADD files/update_dav_svn_conf.py /usr/local/bin/
 ADD files/entrypoint.sh /usr/local/bin/
 ADD files/subversion-daemon.py /usr/local/bin/
+ADD files/default-ssl.conf /etc/apache2/sites-available/
 
 RUN chmod a+x /usr/local/bin/*.sh
 
