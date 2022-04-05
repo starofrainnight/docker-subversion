@@ -1,13 +1,15 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 LABEL MAINTAINER Hong-She Liang <starofrainnight@gmail.com>
 
 ENV LANG C.UTF-8
+# Avoiding user interaction with tzdata
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
     python \
     apache2 \
     subversion \
-    libapache2-svn \
+    libapache2-mod-svn \
     links \
     psmisc \
     wget \
